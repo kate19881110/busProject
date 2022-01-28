@@ -1,0 +1,10 @@
+copyright: White Sand Group All rights reserved.
+login:
+  title: White Label Manager
+  account:
+    label: account
+    placeholder: please input account
+  password:
+    label: password
+    placeholder: please input password
+  login: login

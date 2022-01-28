@@ -1,0 +1,81 @@
+//---------尺寸參數------------
+$pc-size: 1680px // PC 最小寬度
+$pad-size: 760px  // pad 最小寬度
+$phone-size: 480px  // phone 最小寬度
+
+//---------顏色參數------------
+$main-color: #50b69b        // 網頁主色調
+$deputy-color: #FBDDCC      // 網頁副色調
+$dark-text-color: #444    // 深色文字
+$light-text-color: #545c64     // 淺色文字
+$success-color: #1890ff     // 成功提示色
+$warning-color: #ffba00     // 警告提示色
+$danger-color: #ff4949      // 錯誤提示色
+$dark-color: #545c64        // 深色背景
+
+//---------系統參數------------
+$header-height: 4rem
+$sidebar-width: 12rem
+
+//--------常用類別------------
+//text
+.text-small
+  font-size: .8rem
+.text-medium
+  font-size: 1rem
+.text-big
+  font-size: 1.2rem
+.text-large
+  font-size: 1.6rem
+.text-huge
+  font-size: 2rem
+
+//font-weight
+.fw-8
+  font-weight: 800
+.fw-6
+  font-weight: 600
+.fw-4
+  font-weight: 400
+
+//title
+.title-small
+  font-weight: 800
+  font-size: 1.2rem
+.title-medium
+  font-weight: 800
+  font-size: 1.6rem
+.title-big
+  font-weight: 800
+  font-size: 2rem
+.title-large
+  font-weight: 800
+  font-size: 3rem
+
+//
+.system-input
+  width: 100%
+  height: 2rem
+  padding: 4px 12px
+  border: 2px solid $light-text-color
+  border-radius: 4px
+  background: #FFF
+//---------混合模組------------
+@mixin center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+
+@mixin pc-screen
+  @media all and (min-width: $pc-size)
+    @content
+@mixin pad-screen１
+  @media all and (min-width: $pad-size) and (max-width: calc(#{$pc-size} - 1px))
+    @content
+@mixin small-pad-screen
+  @media all and (min-width: $phone-size) and (max-width: calc(#{$pad-size} - 1px))
+    @content
+@mixin phone-screen
+  @media all and (max-width: calc(#{$phone-size} - 1px))
+    @content

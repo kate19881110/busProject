@@ -1,0 +1,10 @@
+copyright: 白沙集團版權所有
+login:
+  title: 包網系統總後台
+  account:
+    label: 帳號
+    placeholder: 請輸入帳號
+  password:
+    label: 密碼
+    placeholder: 請輸入密碼
+  login: 登入
