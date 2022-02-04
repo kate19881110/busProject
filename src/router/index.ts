@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Login from '@/views/Login/index.vue';
 import componentPage from '@/views/component/index.vue';
+import dynamicKeyBoard from '@/views/DynamicKeyBoard/index.vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/login'
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
+    redirect: '/component'
   },
   {
     path: '/component',
     name: 'component',
     component: componentPage
+  },
+  {
+    path: '/keyBoard',
+    name: 'keyBoard',
+    component: dynamicKeyBoard
   }
 ];
 
