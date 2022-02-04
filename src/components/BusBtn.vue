@@ -1,5 +1,5 @@
 <template lang="pug">
-button( class="basic-size" :class="[btn,colorBtn,text,colorWord]")
+button( class="basic-size" :class="[btn,colorBtn,text,colorWord]" @click="$emit('click')")
     slot
 </template>
 <script lang="ts">
@@ -55,12 +55,13 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
+@import @/styles/variables.sass
 .basic-size
     width: 75px
     height: 70px
     border-radius: 15px
-    margin: 10px
+    margin: 8px
     border-color: transparent
     box-shadow: 5px 5px 5px 2px #cccccc
 .text-word
@@ -71,7 +72,7 @@ export default defineComponent({
 .bg-blue
     background: #2D9CDB
 .bg-green
-    background: #2398A1
+    background: $main-color
 .bg-coffee
     background: #BC671C
 .bg-orange
@@ -85,5 +86,5 @@ export default defineComponent({
 .word-white
     color: #fff
 .word-green
-    color: #2398A1
+    color: $main-color
 </style>
