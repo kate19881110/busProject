@@ -1,9 +1,11 @@
 <template lang="pug">
+el-input(v-model="answer")
+
 .main__bg
     h2 動態鍵盤
     .btn__layout
-      BusBtn(:type="'red'" :color="'white'" @click="$emit('onCheck')") 紅
-      BusBtn(:type="'blue'" :color="'white'") 藍
+      BusBtn(:type="'red'" :color="'white'" @btnFn="inputValue('紅')") 紅
+      BusBtn(:type="'blue'" :color="'white'" @btnFn="inputValue('藍')") 藍
       BusBtn(:type="'white'" :color="'green'") 1
       BusBtn(:type="'white'" :color="'green'") 2
       BusBtn(:type="'white'" :color="'green'") 3
@@ -34,10 +36,23 @@
       BusBtn(:type="'white'" :color="'green'") T
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import BusBtn from '@/components/BusBtn.vue';
 export default defineComponent({
-  components: { BusBtn }
+  components: {
+    BusBtn
+  },
+  setup() {
+    const answer = ref<string>('');
+    const inputValue = (isBtn: string): void => {
+      console.log('isBtn:' + isBtn);
+      answer.value = isBtn;
+    };
+    return {
+      answer,
+      inputValue
+    };
+  }
 });
 </script>
 <style lang="sass" scoped>

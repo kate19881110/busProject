@@ -1,5 +1,5 @@
 <template lang="pug">
-button( class="basic-size" :class="[btn,colorBtn,text,colorWord]" @click="$emit('click')")
+button( class="basic-size" :class="[btn,colorBtn,text,colorWord]" @click="clickBtn")
     slot
 </template>
 <script lang="ts">
@@ -42,7 +42,7 @@ export default defineComponent({
       default: ''
     }
   },
-  setup(props) {
+  setup(props, context) {
     const colorBtn = computed(() => {
       const typeWord = ref<keyof ColorMapType>(props.type);
       return typeWord.value ? colorMap[typeWord.value] : colorMap['blue'];
@@ -51,7 +51,10 @@ export default defineComponent({
       const WordColor = ref<keyof WordMapType>(props.color);
       return WordColor.value ? wordMap[WordColor.value] : wordMap['green'];
     });
-    return { colorBtn, colorMap, colorWord };
+    const clickBtn = (): void => {
+      context.emit('btnFn');
+    };
+    return { colorBtn, colorMap, colorWord, clickBtn };
   }
 });
 </script>
