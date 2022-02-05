@@ -1,5 +1,5 @@
 <template lang="pug">
-el-input(v-model="answer")
+el-input(:value="answer")
 
 .main__bg
     h2 動態鍵盤
@@ -36,17 +36,19 @@ el-input(v-model="answer")
       BusBtn(:type="'white'" :color="'green'") T
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, reactive, ref } from 'vue';
 import BusBtn from '@/components/BusBtn.vue';
 export default defineComponent({
   components: {
     BusBtn
   },
   setup() {
-    const answer = ref<string>('');
+    const answer = reactive<string[]>([]);
     const inputValue = (isBtn: string): void => {
       console.log('isBtn:' + isBtn);
-      answer.value = isBtn;
+      const item = ref<string>(isBtn);
+      answer.push(item.value);
+      console.log(answer);
     };
     return {
       answer,
